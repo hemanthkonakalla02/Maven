@@ -1,0 +1,144 @@
+1]Explain indetail about Maven ?
+
+    ->Maven is a build automation and project management tool used in java projects
+    ->It manages dependencies,builds the projects and follows a standard project structure using pom.xml file
+    ->Maven does 3 main jobs:-
+        i)Dependency Management : Which means it downloads the required jars automatically
+        ii)Build automation : It compiles,tests and packages the code
+        iii)project structure : It enforces a standard folder structure
+
+2]Explain pom.xml file ?
+
+    ->POM stands for project object model,which is the core of maven,it contains all the project information
+        i)ProjectName
+        ii)ProjectVersion
+        iii)CompanyName/OrganizationName
+        iv)It contains all the dependencies which are required to project (Maven autodownloads this jars)
+
+3]Explain Maven LifeCycle or Maven goals or Maven phases ?
+    
+    ->In Maven LifeCycle different phases are involved:-
+
+        i)mvn clean : cleans the project by removing the files which are generated during the build process
+
+        ii)mvn validate : validates the project structure and configuration before the actual build starts
+
+        iii)mvn compile : compiles the source code of the project
+
+        iv)mvn test : runs tests for the project
+
+        v)mvn package : packages the compiled code into distributable formats like jar/war file
+
+        vi)mvn verify : Verifies the integration checks
+
+        vii)mvn install : copies the jar into local repository (.m2 folder)
+
+        viii)mvn deploy : deploys the project into remote repository for team sharing
+
+
+4]What is maven repository ?
+
+    ->Maven repository is a storage location for jars and plugins
+    ->Maven look for dependencies in 3 places in order
+        i)local repository : .m2 folder available in local machine
+        ii)central repository : to get the dependencies from maven central repository we need active internet connection
+        iii)remote repository : company private repo's (Nexus/Artifactory)
+    
+5]Difference between install and deploy ?
+
+    ->Install copies the jar into local repository (.m2 folder)
+    ->Deploy pushes the project into remote repository like nexus for team sharing
+
+
+6]How do you skip tests in Maven?
+
+    ->mvn package -DskipTests
+
+
+7]What is groupId, artifactId, version? 
+
+    ->groupId,artifactId,version together called as GAV co-ordinates,they uniquely identify any dependency in maven.
+
+
+8]What is transitive dependency ?
+
+    ->When you add one dependency maven will automatically downloads its dependent jars also
+    for an example:If i add SpringBootWeb
+    Maven will automatically downloads
+        i)SpringMVC
+        ii)SpringCore
+        iii)Tomcat
+    This is called as transitive dependency.
+
+
+
+9] What is SNAPSHOT vs RELEASE ?
+
+SNAPSHOT --> under development version
+
+RELEASE --> stable release version
+
+
+10]Difference between Maven and  Gradle ?
+    ->Maven and Gradle both the build tools
+    ->Key difference between Maven and Gradle is :
+        i)Maven is XML based
+        ii)Maven is strict and popular in enterprise java
+
+        i)Gradle is groovy based
+        ii)Gradle is faster and flexible used in android
+
+11]Maven plugins ?
+    ->maven-compiler-plugin : Compiles the java source code
+    ->spring-boot-maven-plugin : Creates executable jar
+
+
+12]Explain maven scopes ?
+
+    ->In maven thier are 4 different types of scopes :-
+        i)Compile
+        ii)Test
+        iii)Provided
+        iv)Runtime
+
+    ->Compile available everywhere during coding,testing and running
+    ->If we dont write any scope it is applied automatically
+
+    for an example : SpringBootJar is required during coding,testing and running
+
+
+    ->Test available only during testing but not included in final jar
+
+    for an example: Junit
+    Junit is required to run the test cases
+    Junit is not required when the app is running in production
+
+
+    ->Provided available during coding and compilation but included in final jar
+
+    for an example:Servlet API jar ,tomcat is already having the jar,so no need to add it explictly
+
+
+    ->Runtime : Not needed during coding,but needed when app is running
+    for an example: MySQL Driver jar
+    We dont use MySQLDriver classes directly in code
+    When app is running it requires MySQL driver to connect to db.
+
+
+13]Explain Parent POM ?
+
+    ->POM stands for project object model
+    ->Parent POM provides default configurations,dependency versions,plugin settings to child projects
+
+    for an example: In SpringBoot spring-boot-starter-parent is a parent pom that manages all the dependency version,so no need to manage the dependency versions manually
+
+
+
+14]Explain Dependency Exclusion ?
+
+    ->For an example In real time scenarion : In my project we use Jetty instead of tomcat,so i excluded tomcat from spring-boot-starter-web dependency
+
+
+15]mvn clean install  ?
+
+    ->cleans the project by removing the files which are generated during the build process,install copies the jar into local repository(.m2 folder)
