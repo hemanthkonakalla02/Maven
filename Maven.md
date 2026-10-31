@@ -74,9 +74,9 @@
 
 9] What is SNAPSHOT vs RELEASE ?
 
-SNAPSHOT --> under development version
+    SNAPSHOT --> under development version
 
-RELEASE --> stable release version
+    RELEASE --> stable release version
 
 
 10]Difference between Maven and  Gradle ?
